@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.15), transparent),
+      radial-gradient(ellipse 50% 30% at 80% 60%, rgba(99, 102, 241, 0.08), transparent);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 hover:bg-brand-400
+    text-slate-950 font-semibold rounded-xl transition-all duration-200
+    active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700
+    text-slate-200 font-medium rounded-xl border border-slate-700 hover:border-slate-600
+    transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-slate-400 hover:text-slate-200
+    hover:bg-slate-800 rounded-lg transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20
+    text-red-400 hover:text-red-300 rounded-lg border border-red-500/20
+    transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-slate-900/60 backdrop-blur-sm border border-slate-800 rounded-2xl;
+  }
+
+  .input {
+    @apply w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3
+    text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2
+    focus:ring-brand-500/50 focus:border-brand-500 transition-colors;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
